@@ -1,7 +1,8 @@
-
 #!/bin/bash
-
-
+#
+# Moodle version will be 3.3
+# default password for MySQL root user is : root
+#
 
 MOODLEVERSION='MOODLE_33_STABLE'
 
@@ -17,6 +18,8 @@ sudo systemctl enable nginx
 # 2. install & setup MySQL
 #
 
+echo "mysql-server mysql-server/root_password password root" | sudo debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password ${MYSQL}" | sudo debconf-set-selections
 sudo apt-get -y install mysql-server mysql-client
 sudo systemctl start mysql
 sudo systemctl enable mysql
