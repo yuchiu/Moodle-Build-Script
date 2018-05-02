@@ -19,7 +19,7 @@ sudo systemctl enable nginx
 #
 
 echo "mysql-server mysql-server/root_password password root" | sudo debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password ${MYSQL}" | sudo debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password root" | sudo debconf-set-selections
 sudo apt-get -y install mysql-server mysql-client
 sudo systemctl start mysql
 sudo systemctl enable mysql
