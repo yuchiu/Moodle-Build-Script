@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Moodle version will be 3.3
-# default password for MySQL root user is : root
+# Moodle version is 3.3 by default
+# default password for MySQL root user is root by default
 #
 
 MOODLEVERSION='MOODLE_33_STABLE'
@@ -24,7 +24,7 @@ sudo apt-get -y install mysql-server mysql-client
 sudo systemctl start mysql
 sudo systemctl enable mysql
 sudo sed -i 's/Basic Settings/Basic Settings\ndefault_storage_engine = innodb\ninnodb_file_per_table = 1\ninnodb_file_format = Barracuda/' /etc/mysql/mysql.conf.d/mysqld.cnf
-sudo mysql -u root -proot -Bse "create database moodle default character set utf8;"
+sudo mysql -u root -proot -Bse "create database moodledb default character set utf8;"
 
 #
 # 3. Install PHP & Moodle's dependencies
